@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-right: 30px;
+  margin-top: 80px;
+  margin-left: 50px;
+}
+
+.rowContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.communityCard {
+  width: 440px;
+  height: 346px;
+  border-radius: 12px;
+}
