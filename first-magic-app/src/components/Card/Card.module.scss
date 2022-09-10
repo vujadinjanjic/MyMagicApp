@@ -1,0 +1,48 @@
+.card {
+  background: rgba(#ffffff, 0.6);
+  display: flex;
+  flex-direction: column;
+  margin: 10px 10px;
+  position: relative;
+  overflow: hidden;
+  width: auto;
+  box-shadow: 0px 4px 16px rgba(#000000, 0.05);
+  border-radius: 12px;
+  transition: 150ms ease;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0px 4px 12px rgba(#000000, 0.2);
+  }
+}
+.magicImage {
+  max-height: 120px;
+  min-height: 120px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.bottom {
+  padding: 16px 24px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.button {
+  color: green;
+  border-color: green;
+  cursor: pointer;
+  border-radius: 40px;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 1px 1px;
+  padding: 5px 20px;
+  margin-top: 20px;
+}
+
+.cardName {
+  color: grey;
+  font-size: 20px;
+  font-weight: 700;
+}
