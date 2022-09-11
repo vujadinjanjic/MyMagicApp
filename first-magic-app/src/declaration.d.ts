@@ -1,0 +1,1 @@
+declare "react-router-dom"

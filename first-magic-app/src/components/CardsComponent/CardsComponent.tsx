@@ -1,10 +1,10 @@
 import React from "react";
-import { ISpellResponse } from "../../types/Spell";
+import { ISpellPartial } from "../../types/Spell";
 import Card from "../Card/Card";
 import styles from "./CardComponent.module.scss";
 
 interface ICardsComponentProps {
-  spells: Array<ISpellResponse>;
+  spells: Array<ISpellPartial>;
 }
 
 const CardsComponent = ({ spells }: ICardsComponentProps) => {
