@@ -35,7 +35,7 @@ const Homepage = () => {
       </div>
       <AntDButton
         className={styles.loadButton}
-        onClick={() => setLoad(load + 8)}
+        onClick={() => setLoad((prev) => prev + 8)}
       >
         <span>LOAD MORE</span>
       </AntDButton>
