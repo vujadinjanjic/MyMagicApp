@@ -1,5 +1,4 @@
-export interface ISpellResponse {
-  index: string;
+export interface ISpellPartial {
   name: string;
   url: string;
 }
