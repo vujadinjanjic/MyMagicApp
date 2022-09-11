@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  padding-left: 30%;
+}
+.icon {
+  height: 20px;
+  width: 20px;
+  padding-left: 60%;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  padding-top: 10px;
+}

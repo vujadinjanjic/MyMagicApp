@@ -41,3 +41,12 @@
 .loader {
   @extend .container;
 }
+
+.drawer {
+  width: 30%;
+  height: 100%;
+  position: absolute;
+  background-color: wheat;
+  left: 0;
+  top: 0;
+}
