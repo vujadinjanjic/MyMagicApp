@@ -2,13 +2,16 @@ import React from "react";
 import magicImage from "../../images/magic.svg";
 import styles from "./Card.module.scss";
 import { useHistory } from "react-router";
+import heart from "../../images/heart.svg";
+import emptyHeart from "../../images/empty-heart.svg";
 
 interface ICardProps {
   name: string;
   id: string;
+  added?: boolean;
 }
 
-const Card = ({ name, id }: ICardProps) => {
+const Card = ({ name, id, added }: ICardProps) => {
   const navigateTo = useHistory();
   return (
     <div
@@ -19,6 +22,11 @@ const Card = ({ name, id }: ICardProps) => {
       <img className={styles.magicImage} src={magicImage} />
       <div className={styles.bottom}>
         <span className={styles.cardName}>{name}</span>
+        {added ? (
+          <img src={heart} className={styles.icon} />
+        ) : (
+          <img src={emptyHeart} className={styles.icon} />
+        )}
       </div>
     </div>
   );

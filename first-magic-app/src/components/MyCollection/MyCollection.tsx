@@ -1,17 +1,13 @@
 import React from "react";
 import styles from "./MyCollection.module.scss";
 import removeIcon from "../../images/remove.svg";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
 
 interface IMyCollectionProps {
   close: () => void;
+  mySpells?: Array<string>;
 }
 
-const MyCollection = ({ close }: IMyCollectionProps) => {
-  const mySpells = useSelector<RootState, Array<string>>(
-    (state) => state.spell.spells
-  );
+const MyCollection = ({ close, mySpells }: IMyCollectionProps) => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -19,7 +15,7 @@ const MyCollection = ({ close }: IMyCollectionProps) => {
         <img src={removeIcon} className={styles.icon} onClick={() => close()} />
       </div>
       <div className={styles.spellContainer}>
-        {mySpells.map((spell, index) => (
+        {mySpells?.map((spell, index) => (
           <div key={index} className={styles.spell}>
             <span>{index}. </span>
             <span className={styles.spellName}>{spell}</span>

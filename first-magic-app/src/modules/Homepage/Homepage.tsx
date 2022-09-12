@@ -6,6 +6,8 @@ import styles from "./Homepage.module.scss";
 import { Button as AntDButton } from "antd";
 import Loading from "../Loading/Loading";
 import MyCollection from "../../components/MyCollection/MyCollection";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
 
 const Homepage = () => {
   const [allSpells, setAllSpells] = useState<Array<ISpellPartial>>([]);
@@ -13,6 +15,10 @@ const Homepage = () => {
   const [totalCount, setTotalCount] = useState<number>(0);
   const [openDrawer, setOpenDrawer] = useState<boolean>(false);
   const [load, setLoad] = useState<number>(8);
+
+  const mySpells = useSelector<RootState, Array<string>>(
+    (state) => state.spell.spells
+  );
 
   useEffect(() => {
     SpellService.getSpells()
@@ -47,7 +53,7 @@ const Homepage = () => {
           <span>Welcome to magic page</span>
         </div>
         <div>
-          <CardsComponent spells={allSpells} />
+          <CardsComponent spells={allSpells} mySpells={mySpells} />
         </div>
         <AntDButton
           className={styles.loadButton}
@@ -57,7 +63,10 @@ const Homepage = () => {
         </AntDButton>
         {openDrawer && (
           <div className={styles.drawer}>
-            <MyCollection close={() => setOpenDrawer(false)} />
+            <MyCollection
+              close={() => setOpenDrawer(false)}
+              mySpells={mySpells}
+            />
           </div>
         )}
       </div>

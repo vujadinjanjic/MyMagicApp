@@ -12,7 +12,7 @@
 }
 
 .container {
-  background-color: aqua;
+  background-color: #e0eff5;
   height: 100vh;
   overflow-y: auto;
 }
@@ -21,7 +21,6 @@
   font-weight: 700;
   font-size: 34px;
   padding-top: 10px;
-  color: blueviolet;
   animation-name: moveInFromLeft;
   animation-duration: 2s;
 }
@@ -46,7 +45,7 @@
   width: 20%;
   height: 100%;
   position: absolute;
-  background-color: wheat;
+  background-color: #ccccd4;
   left: 0;
   top: 0;
 }
