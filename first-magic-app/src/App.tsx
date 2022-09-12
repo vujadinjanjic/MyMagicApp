@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/">
+          <Route path="/" exact>
             <Homepage />
           </Route>
           <Route path="/card/:id">

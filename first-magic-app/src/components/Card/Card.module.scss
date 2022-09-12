@@ -12,6 +12,7 @@
   &:hover {
     box-shadow: 0px 4px 12px rgba(#000000, 0.2);
   }
+  cursor: pointer;
 }
 .magicImage {
   max-height: 120px;
@@ -22,10 +23,13 @@
 }
 
 .bottom {
-  padding: 16px 24px;
+  padding: 30px 24px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .button {
@@ -44,4 +48,16 @@
   color: grey;
   font-size: 20px;
   font-weight: 700;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.icon {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
 }

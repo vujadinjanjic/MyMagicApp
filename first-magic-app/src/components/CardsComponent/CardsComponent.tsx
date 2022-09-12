@@ -5,9 +5,10 @@ import styles from "./CardComponent.module.scss";
 
 interface ICardsComponentProps {
   spells: Array<ISpellPartial>;
+  mySpells?: Array<string>;
 }
 
-const CardsComponent = ({ spells }: ICardsComponentProps) => {
+const CardsComponent = ({ spells, mySpells }: ICardsComponentProps) => {
   return (
     <div className={styles.container}>
       <div className={styles.rowContainer}>
@@ -18,7 +19,11 @@ const CardsComponent = ({ spells }: ICardsComponentProps) => {
             aria-label="community-card"
             role="listitem"
           >
-            <Card name={spell.name} id={spell.url} />
+            <Card
+              name={spell.name}
+              id={spell.url}
+              added={mySpells?.includes(spell.name)}
+            />
           </div>
         ))}
       </div>
