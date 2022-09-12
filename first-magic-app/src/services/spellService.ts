@@ -12,9 +12,11 @@ export class SpellService {
     }
   }
 
-  public static async getSpellByUrl(url: string) {
+  public static async getSpellByUrl(id: string) {
     try {
-      const spell = await axios.get(`${process.env.REACT_APP_API_URL}${url}`);
+      const spell = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/spells/${id}`
+      );
       return spell;
     } catch (error) {
       console.error(error);

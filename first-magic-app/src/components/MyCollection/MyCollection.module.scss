@@ -10,7 +10,7 @@
 .icon {
   height: 20px;
   width: 20px;
-  padding-left: 60%;
+  padding-left: 40%;
   padding-top: 10px;
   cursor: pointer;
 }
@@ -19,4 +19,21 @@
   font-size: 20px;
   font-weight: 700;
   padding-top: 10px;
+}
+
+.spellContainer {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+.spell {
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+.spellName {
+  padding-left: 10px;
 }
