@@ -15,6 +15,9 @@ function App() {
           <Route path="/card/:id">
             <Cardpage />
           </Route>
+          <Route path="*" exact>
+            <Homepage />
+          </Route>
         </Switch>
       </Router>
     </div>

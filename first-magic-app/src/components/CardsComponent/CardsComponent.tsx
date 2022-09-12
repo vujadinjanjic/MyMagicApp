@@ -12,17 +12,17 @@ const CardsComponent = ({ spells, mySpells }: ICardsComponentProps) => {
   return (
     <div className={styles.container}>
       <div className={styles.rowContainer}>
-        {spells?.map((spell, index) => (
+        {spells?.map(({ name, url }) => (
           <div
             className={styles.communityCard}
-            key={index}
+            key={url}
             aria-label="community-card"
             role="listitem"
           >
             <Card
-              name={spell.name}
-              id={spell.url}
-              added={mySpells?.includes(spell.name)}
+              name={name}
+              id={url}
+              added={mySpells?.includes(name)}
             />
           </div>
         ))}

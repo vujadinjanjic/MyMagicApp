@@ -1,5 +1,8 @@
 .container {
-  margin: 2% 10%;
+  margin: 0 10%;
+  background-color: #e0eff5;
+  height: 100vh;
+  border-radius: 20px;
 }
 .title {
   font-size: 30px;
@@ -7,11 +10,14 @@
 }
 .descriptionField {
   height: auto;
-  padding-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background-color: beige;
+  border-radius: 20px;
+  margin: 20px 0px;
+  color: #888888;
+  font-size: 18px;
+  font-weight: 600;
 }
 .about {
   display: flex;
@@ -21,26 +27,28 @@
   font-size: 20px;
 }
 .prop {
-  padding-top: 10px;
+  padding: 10px;
 }
 
 .description {
   padding-top: 20px;
-  align-items: flex-start;
+  text-align: justify;
+  -moz-text-align-last: right;
+  text-align-last: right;
+  padding: 50px 30px;
 }
 
 .descriptionTitle {
   @extend .prop;
   font-size: 20px;
+  padding: 30px;
 }
 
 .buttonContainer {
-  padding-top: 50px;
+  padding-top: 200px;
 }
 
 .loadButton {
-  color: green;
-  border-color: green;
   cursor: pointer;
   border-radius: 40px;
   font-weight: 400;
@@ -48,4 +56,30 @@
   padding: 1px 1px;
   padding: 5px 20px;
   margin-bottom: 50px;
+}
+
+.loadButtonDisabled {
+  @extend .loadButton;
+  color: #808080;
+}
+
+.backIcon {
+  width: 50px;
+  display: flex;
+  justify-content: flex-start;
+  position: absolute;
+  cursor: pointer;
+  left: 20px;
+  top: 10px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 5px;
+}
+.spellImg {
+  width: 160px;
+  height: 150px;
+  padding-top: 20px;
+}
+.wrapper {
+  background-image: url("../../images/myImage.jpeg");
 }
