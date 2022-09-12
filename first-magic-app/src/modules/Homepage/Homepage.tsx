@@ -8,6 +8,7 @@ import Loading from "../Loading/Loading";
 import MyCollection from "../../components/MyCollection/MyCollection";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
+import Avatar from "../../images/avatar.svg";
 
 const Homepage = () => {
   const [allSpells, setAllSpells] = useState<Array<ISpellPartial>>([]);
@@ -46,12 +47,18 @@ const Homepage = () => {
         <Loading />;
       </div>
     );
+
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.title} onClick={() => setOpenDrawer(true)}>
+        <div className={styles.title}>
           <span>Welcome to magic page</span>
         </div>
+        <img
+          src={Avatar}
+          className={styles.avatar}
+          onClick={() => setOpenDrawer(true)}
+        />
         <div>
           <CardsComponent spells={allSpells} mySpells={mySpells} />
         </div>

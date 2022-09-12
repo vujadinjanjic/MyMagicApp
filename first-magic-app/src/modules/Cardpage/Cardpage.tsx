@@ -1,24 +1,36 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { SpellService } from "../../services/spellService";
 import { ISpell } from "../../types/Spell";
 import styles from "./Cardpage.module.scss";
 import { Button as AntDButton } from "antd";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { saveSpell } from "../../store/spell/actions";
+import back from "../../images/back.svg";
+import { RootState } from "../../store/store";
 
 const Cardpage = () => {
   const params = useParams<{ id: string }>();
   const [spell, setSpell] = useState<ISpell>();
+  const history = useHistory();
   const dispatch = useDispatch();
+  const mySpells = useSelector<RootState, Array<string>>(
+    (state) => state.spell.spells
+  );
+
   useEffect(() => {
     SpellService.getSpellByUrl(params.id).then((res) => {
       setSpell(res?.data);
     });
-  }, []);
+  }, [params.id]);
 
   return (
     <div className={styles.container}>
+      <img
+        src={back}
+        className={styles.backIcon}
+        onClick={() => history.goBack()}
+      />
       <span className={styles.title}>{spell?.name}</span>
       <div className={styles.about}>
         <span className={styles.prop}>
@@ -42,10 +54,21 @@ const Cardpage = () => {
       </div>
       <div className={styles.buttonContainer}>
         <AntDButton
-          className={styles.loadButton}
-          onClick={() => spell?.name && dispatch(saveSpell(spell?.name))}
+          className={
+            spell && !mySpells.includes(spell.name)
+              ? styles.loadButton
+              : styles.loadButtonDisabled
+          }
+          disabled={spell && mySpells.includes(spell.name)}
+          onClick={() => {
+            spell?.name && dispatch(saveSpell(spell?.name));
+          }}
         >
-          <span>ADD TO MY COLLECTION</span>
+          <span>
+            {spell && !mySpells.includes(spell.name)
+              ? " ADD TO MY COLLECTION"
+              : "COLLECTED"}
+          </span>
         </AntDButton>
       </div>
     </div>

@@ -17,7 +17,7 @@ const Card = ({ name, id, added }: ICardProps) => {
     <div
       className={styles.card}
       key={id}
-      onClick={() => navigateTo.push(`/card/${id.split("/")[3]}`)}
+      onClick={() => navigateTo.push(`/card/${id?.split("/")[3]}`)}
     >
       <img className={styles.magicImage} src={magicImage} />
       <div className={styles.bottom}>
