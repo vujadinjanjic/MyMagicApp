@@ -9,6 +9,9 @@ import { saveSpell } from "../../store/spell/actions";
 import back from "../../images/back.svg";
 import { RootState } from "../../store/store";
 
+const ADD_MAGIC = "COLLECT THIS MAGIC";
+const MAGIC_IS_ADDED = "COLLECTED";
+
 const Cardpage = () => {
   const params = useParams<{ id: string }>();
   const [spell, setSpell] = useState<ISpell>();
@@ -22,54 +25,55 @@ const Cardpage = () => {
     SpellService.getSpellByUrl(params.id).then((res) => {
       setSpell(res?.data);
     });
-  }, [params.id]);
+  }, [params?.id]);
 
   return (
-    <div className={styles.container}>
-      <img
-        src={back}
-        className={styles.backIcon}
-        onClick={() => history.goBack()}
-      />
-      <span className={styles.title}>{spell?.name}</span>
-      <div className={styles.about}>
-        <span className={styles.prop}>
-          Material: {spell?.material || "No materal"}
-        </span>
-        <span className={styles.prop}>
-          Duration: {spell?.duration || "No duration"}
-        </span>
-        <span className={styles.prop}>Level: {spell?.level || "No level"}</span>
-        <span className={styles.prop}>
-          Higher level: {spell?.higher_level || "No higher level"}
-        </span>
-        <span className={styles.prop}>Range: {spell?.range || "No range"}</span>
-        <span className={styles.prop}>
-          Casting time: {spell?.casting_time || "No casting time"}
-        </span>
-      </div>
-      <div className={styles.descriptionField}>
-        <span className={styles.descriptionTitle}>Description:</span>
-        <div className={styles.description}>{spell?.desc}</div>
-      </div>
-      <div className={styles.buttonContainer}>
-        <AntDButton
-          className={
-            spell && !mySpells.includes(spell.name)
-              ? styles.loadButton
-              : styles.loadButtonDisabled
-          }
-          disabled={spell && mySpells.includes(spell.name)}
-          onClick={() => {
-            spell?.name && dispatch(saveSpell(spell?.name));
-          }}
-        >
-          <span>
-            {spell && !mySpells.includes(spell.name)
-              ? " ADD TO MY COLLECTION"
-              : "COLLECTED"}
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
+        <img src={back} className={styles.backIcon} onClick={history?.goBack} />
+        <span className={styles.title}>{spell?.name}</span>
+        <div className={styles.about}>
+          <span className={styles.prop}>
+            Material: {spell?.material || "No materal"}
           </span>
-        </AntDButton>
+          <span className={styles.prop}>
+            Duration: {spell?.duration || "No duration"}
+          </span>
+          <span className={styles.prop}>
+            Level: {spell?.level || "No level"}
+          </span>
+          <span className={styles.prop}>
+            Higher level: {spell?.higher_level || "No higher level"}
+          </span>
+          <span className={styles.prop}>
+            Range: {spell?.range || "No range"}
+          </span>
+          <span className={styles.prop}>
+            Casting time: {spell?.casting_time || "No casting time"}
+          </span>
+        </div>
+        <div className={styles.descriptionField}>
+          <div className={styles.description}>{spell?.desc}</div>
+        </div>
+        <div className={styles.buttonContainer}>
+          <AntDButton
+            className={
+              spell && !mySpells.includes(spell.name)
+                ? styles.loadButton
+                : styles.loadButtonDisabled
+            }
+            disabled={spell && mySpells.includes(spell.name)}
+            onClick={() => {
+              spell?.name && dispatch(saveSpell(spell?.name));
+            }}
+          >
+            <span>
+              {spell && !mySpells.includes(spell.name)
+                ? ADD_MAGIC
+                : MAGIC_IS_ADDED}
+            </span>
+          </AntDButton>
+        </div>
       </div>
     </div>
   );

@@ -18,14 +18,14 @@ const Homepage = () => {
   const [load, setLoad] = useState<number>(8);
 
   const mySpells = useSelector<RootState, Array<string>>(
-    (state) => state.spell.spells
+    ({ spell }) => spell?.spells
   );
 
   useEffect(() => {
     SpellService.getSpells()
       .then((res) => {
-        setAllSpells(res?.data.results.slice(0, load));
-        setTotalCount(res?.data.count);
+        setAllSpells(res?.data?.results.slice(0, load));
+        setTotalCount(res?.data?.count);
       })
       .finally(() => setIsLoading(false));
   }, []);

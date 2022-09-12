@@ -1,6 +1,9 @@
 import React from "react";
 import styles from "./MyCollection.module.scss";
 import removeIcon from "../../images/remove.svg";
+import bin from "../../images/Bin.svg";
+import { useDispatch } from "react-redux";
+import { removeSpell } from "../../store/spell/actions";
 
 interface IMyCollectionProps {
   close: () => void;
@@ -8,6 +11,8 @@ interface IMyCollectionProps {
 }
 
 const MyCollection = ({ close, mySpells }: IMyCollectionProps) => {
+  const dispatch = useDispatch();
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -19,6 +24,11 @@ const MyCollection = ({ close, mySpells }: IMyCollectionProps) => {
           <div key={index} className={styles.spell}>
             <span>{index}. </span>
             <span className={styles.spellName}>{spell}</span>
+            <img
+              src={bin}
+              className={styles.bin}
+              onClick={() => dispatch(removeSpell(spell))}
+            />
           </div>
         ))}
       </div>

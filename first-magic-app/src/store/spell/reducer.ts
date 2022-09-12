@@ -1,4 +1,4 @@
-import { SAVE_SPELL } from "./constants";
+import { REMOVE_SPELL, SAVE_SPELL } from "./constants";
 import { SpellState } from "./types";
 import { AnyAction } from "redux";
 
@@ -17,6 +17,11 @@ const spellReducer = (state = initialState, action: AnyAction) => {
 
       return {
         spells: [...state.spells, payload],
+      };
+    }
+    case REMOVE_SPELL: {
+      return {
+        spells: state.spells.filter((name) => name !== payload),
       };
     }
     default:
