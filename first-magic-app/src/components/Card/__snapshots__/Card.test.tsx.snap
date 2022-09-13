@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card testing renders correctly 1`] = `
+<div
+  className="card"
+  onClick={[Function]}
+>
+  <img
+    className="magicImage"
+    src="trick.png"
+  />
+  <div
+    className="bottom"
+  >
+    <span
+      aria-label="name"
+      className="cardName"
+    >
+      name
+    </span>
+    <img
+      aria-label="fullFilled"
+      className="icon"
+      src="red-heart.svg"
+    />
+  </div>
+</div>
+`;

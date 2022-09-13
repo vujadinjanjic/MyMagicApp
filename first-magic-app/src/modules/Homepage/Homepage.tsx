@@ -58,8 +58,9 @@ const Homepage = () => {
           src={Avatar}
           className={styles.avatar}
           onClick={() => setOpenDrawer(true)}
+          aria-label="open-drawer"
         />
-        <div>
+        <div aria-label="spells">
           <CardsComponent spells={allSpells} mySpells={mySpells} />
         </div>
         <AntDButton
@@ -69,7 +70,7 @@ const Homepage = () => {
           <span>LOAD MORE</span>
         </AntDButton>
         {openDrawer && (
-          <div className={styles.drawer}>
+          <div className={styles.drawer} aria-label="drawer">
             <MyCollection
               close={() => setOpenDrawer(false)}
               mySpells={mySpells}
