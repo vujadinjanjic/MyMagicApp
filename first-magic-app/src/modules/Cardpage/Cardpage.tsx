@@ -28,7 +28,7 @@ const Cardpage = () => {
   }, [params?.id]);
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} aria-label="card">
       <div className={styles.container}>
         <img src={back} className={styles.backIcon} onClick={history?.goBack} />
         <span className={styles.title}>{spell?.name}</span>

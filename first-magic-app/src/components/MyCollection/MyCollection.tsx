@@ -17,13 +17,20 @@ const MyCollection = ({ close, mySpells }: IMyCollectionProps) => {
     <div className={styles.container}>
       <div className={styles.header}>
         <span className={styles.title}> My collection</span>
-        <img src={removeIcon} className={styles.icon} onClick={() => close()} />
+        <img
+          src={removeIcon}
+          className={styles.icon}
+          aria-label="close"
+          onClick={() => close()}
+        />
       </div>
       <div className={styles.spellContainer}>
         {mySpells?.map((spell, index) => (
           <div key={index} className={styles.spell}>
             <span>{index}. </span>
-            <span className={styles.spellName}>{spell}</span>
+            <span className={styles.spellName} aria-label="name">
+              {spell}
+            </span>
             <img
               src={bin}
               className={styles.bin}

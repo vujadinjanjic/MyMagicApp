@@ -21,11 +21,13 @@ const Card = ({ name, id, added }: ICardProps) => {
     >
       <img className={styles.magicImage} src={magicImage} />
       <div className={styles.bottom}>
-        <span className={styles.cardName}>{name}</span>
+        <span className={styles.cardName} aria-label="name">
+          {name}
+        </span>
         {added ? (
-          <img src={redHeart} className={styles.icon} />
+          <img src={redHeart} className={styles.icon} aria-label="fullFilled" />
         ) : (
-          <img src={emptyHeart} className={styles.icon} />
+          <img src={emptyHeart} className={styles.icon} aria-label="empty" />
         )}
       </div>
     </div>
